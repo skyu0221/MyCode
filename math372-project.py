@@ -27,7 +27,8 @@ class Individual:
 
     def breed( self ):
 
-        if ( self.__age - start ) % rest == 0 \
+        if self.__age >= start \
+           and ( self.__age - start ) % rest == 0 \
            and self.__age <= end:
             return random.choice( list( self.__genotype ) )
         return False
@@ -40,22 +41,22 @@ def main():
 
     global start, end, life, rest
     # How many children each parent will have?
-    children   = 3
+    children   = 2
     # What is the life expectancy?
-    life       = 10
+    life       = 15
     # How old will they start breed (first breedable age)?
     start      = 5
     # How old will they end breed (last breedable age)?
-    end        = 7
+    end        = 13
     # How often they breed (year between two breed)?
     rest       = 2
     # What are the genotypic frequencies?
     # For 2 alleles, format is [ AA, AB, BB ]
     # For more alleles, format will be:
     # [ AA, AB, AC, ..., BB, BC, ..., CC, ..., ... ]
-    frequency  = [ 0.6, 0.2, 0.2 ]
+    frequency  = [ 0.4, 0.35, 0.25 ]
     # What is the initial number of individuals?
-    population = 5000
+    population = 10000
     # How many years will we simulate?
     year       = 10
 
